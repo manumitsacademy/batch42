@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body>
+		
+		<div ng-app="flipkart">	
+			<div ng-controller="students" style="border:2px solid;padding:5px;">
+				
+				<input type="checkbox" ng-model="t">I Agree Term and Conditions				
+				<!-- <h1 ng-show="t">Hello Kamlesh</h1> -->
+				<!-- <h1 ng-hide="t">Hello Divya</h1> -->
+				<button ng-if="t">submit</button>
+			</div>			
+		</div>
+		
+		<script>
+			var h=angular.module("flipkart",[]);
+			h.controller("students",function($scope){
+				$scope.t;
+				$scope.f=1;
+				$scope.x="Praveen";
+			});
+		</script>
+	</body>
+</html>

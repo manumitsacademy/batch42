@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body>
+		
+		<div ng-app="flipkart">		
+			<div ng-controller="rating">
+				{{x}}
+				<h1 id="he1" ng-bind="total_rating"></h1>
+				<div style="font-size:47px;color:red">{{total_rating}}</div><!-- interpolation -->				
+			</div>
+			{{total_rating}}
+		</div>
+		
+		<script>
+			var h=angular.module("flipkart",[]);
+			h.controller("rating",function($scope){
+				$scope.total_rating=4;	
+				$scope.x = "Praveen";
+			});
+			h.controller("product_details",function(){
+			
+			});
+		</script>
+	</body>
+</html>

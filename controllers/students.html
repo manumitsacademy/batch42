@@ -1,0 +1,42 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body>
+		
+		<div ng-app="flipkart">		
+			{{z}}
+			<div ng-controller="students" style="border:2px solid;padding:5px;">
+				<h1>{{x}}</h1>
+				<!-- <h2>{{y}}</h2> //we cannot access child scope in parent scope-->
+				<h2>{{z}}</h2>
+				<div ng-controller="trainers" style="border:2px solid;padding:5px;">
+					<h1>{{y}}</h1>
+					<h2>{{x}}</h2>
+					<i ng-bind="x"></i>		
+					<input type="text" ng-model="p">
+					<h1>{{p}}</h1>
+					<h1>Test for Git</h1>
+				</div>
+			</div>
+			<div ng-controller="course" style="border:2px solid;padding:5px;">
+				{{z}}
+			</div>
+			<br>			
+		</div>
+		
+		<script>
+			var h=angular.module("flipkart",[]);
+			h.controller("students",function($scope){
+				$scope.x="Praveen";
+			});
+			h.controller("trainers",function($scope,$rootScope){
+				$scope.p="TCS";
+				$scope.y="Kamlesh";
+				$rootScope.z="Manumits";
+			});
+			h.controller("course",function($scope){				
+			});
+		</script>
+	</body>
+</html>

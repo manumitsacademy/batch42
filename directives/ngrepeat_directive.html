@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body>
+		
+		<div ng-app="flipkart">	
+			<div ng-controller="students" style="border:2px solid;padding:5px;">
+				
+				<!-- <h1 ng-repeat="i in names">{{i.name}}={{i.country}}</h1> -->
+				<table border="2px solid" style="font-size:30px;" cellpadding="5px">
+					<tr>
+						<th>S.No</th>
+						<th>Name</th>
+						<th>Country</th>
+						<th>even</th>
+						<th>odd</th>
+					</tr>
+					<tr ng-repeat="w in names" 
+					ng-style="$even?style1:style2">
+						<td>{{$index+1}}</td>
+						<td>{{w.name}}</td>
+						<td>{{w.country}}</td>
+						<td><img src="{{w.img}}" width="200px"></td>
+						<td>{{$even}}</td>
+						<td>{{$odd}}</td>
+					</tr>
+				</table>
+			</div>			
+		</div>
+		
+		<script>
+			var h=angular.module("flipkart",[]);
+			h.controller("students",function($scope){
+				$scope.names = [
+							{name:'Jani',country:'Norway',img:"http://media2.intoday.in/indiatoday/images/stories/naseer_storysize_031014112513.jpg"},
+							{name:'Hege',country:'Sweden'},
+							{name:'Kai',country:'Denmark'},
+							{name:'mogli',country:'india'},
+							{name:'praveen',country:'pakistan'},
+					];
+				$scope.style1={
+					"background-color":"red"
+				};
+				$scope.style2={
+					"background-color":"blue"
+				};
+			});
+		</script>
+	</body>
+</html>

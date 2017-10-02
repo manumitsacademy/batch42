@@ -1,0 +1,13 @@
+<html>
+	<body>
+		<input type="text" id="work">
+		<button onclick="addWork()">Add</button>
+		<div id="d1"> </div>
+		<script>
+			function addWork(){
+				var task = document.getElementById("work").value;
+				document.getElementById("d1").innerHTML = document.getElementById("d1").innerHTML+"<br>"+task;
+			}
+		</script>
+	</body>
+</html>

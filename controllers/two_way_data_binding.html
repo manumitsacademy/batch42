@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+	</head>
+	<body>
+		
+		<div ng-app="flipkart">		
+			{{z}}
+			<div ng-controller="students" style="border:2px solid;padding:5px;">
+				<input type="number" ng-model="x"><br>
+				<input type="number" ng-model="y"><br>
+				<h3>{{x+y}}</h3>
+			</div>		
+			<br>			
+		</div>
+		
+		<script>
+			var h=angular.module("flipkart",[]);
+			h.controller("students",function($scope){
+				$scope.x=0;
+				$scope.y=0;
+			});
+			
+		</script>
+	</body>
+</html>

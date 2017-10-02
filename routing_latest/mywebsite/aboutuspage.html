@@ -1,0 +1,16 @@
+<h1>Manumit Academy</h1>
+<p>This is a Java Script Based Technology Provider. </p>
+Enter the Course Name: <input type="text" ng-model="name"><br>
+Enter the Course Fee: <input type="text" ng-model="fee"><br>
+Enter the Course Duration: <input type="text" ng-model="duration"><br>
+<button ng-click="addCourse()">Add Course</button>
+
+<ul>
+	<li ng-repeat="i in c">
+		<h1>{{i.name}}</h1>
+		<ul>
+			<li>{{i.duration}}</li>
+			<li>{{i.fee}}</li>
+		</ul>
+	</li>
+</ul>

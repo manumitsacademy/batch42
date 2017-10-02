@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	</head>
+	<body>
+		
+		<div ng-app="flipkart">	
+			<ul>
+				<li><a href="#!sachin">srt</a></li>
+				<li><a href="#!dravid">rd</a></li>
+				<li><a href="#!ganguly">sg</a></li>
+				<li><a href="#!newroute">new page</a></li>
+			</ul>	
+			<div ng-view style="border:2px solid;width:500px;height:500px"></div>
+		</div>
+		
+		<script>
+			var h=angular.module("flipkart",["ngRoute"]);			
+		</script>
+		<script src="router.config.js"></script>
+	</body>
+</html>

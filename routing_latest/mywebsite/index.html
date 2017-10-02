@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+		<style>
+			#header ul li{
+				display:inline;
+			}
+			#header ul li a{
+				display:inline-block;
+				width:200px;
+				background-color:crimson;
+				color:white;
+				font-variant:bold;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div ng-app="manumits">	
+		<div id="header">
+			<ul>
+				<li><a href="#!home">Home</a></li>
+				<li><a href="#!aboutus">About Us</a></li>
+				<li><a href="#!cc">Contact Us</a></li>
+			</ul>
+		</div>
+			<div ng-view></div>
+		</div>
+		
+		<script>
+			var h=angular.module("manumits",["ngRoute"]);
+			h.config(function($routeProvider){
+				$routeProvider
+				.when("/aboutus",{
+					templateUrl:"aboutuspage.html",
+					controller:"abcctrl"
+				})
+				.when("/home",{
+					templateUrl:"homepage.html"
+				})
+				.when("/cc",{
+					templateUrl:"contact.html"
+				});
+			});
+			h.controller("abcctrl",function($scope,$http){
+				$http({
+					"method":"GET",
+					"url":"http://localhost:3000/courses"
+				}).then(
+						function(p)
+						{
+							$scope.c=p.data;							
+						}
+						,function()
+						{
+							console.log("Failed");
+						}
+					);	
+				$scope.addCourse=function(){
+					$http({
+						"method":"POST",
+						"url":"http://localhost:3000/courses/",
+						"data":{
+							"name":$scope.name,
+							"duration":$scope.duration,
+							"fee":$scope.fee
+						}
+					}).then(function(){console.log("acha hain");},function(){console.log("Bura hain");});
+				}
+			});
+		</script>
+		
+	</body>
+</html>

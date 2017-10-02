@@ -1,0 +1,29 @@
+<html>
+	<head>	
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+	</head>
+	<body>
+		<a href="1.html">click me to go some where1</a>
+		<h1>Hello Manumits</h1>
+		<div ng-app="myApp">
+			<div>
+				<a href="#!abc">click me to go some where2</a><br>
+				<a href="#!xyz">click me to go some where3</a>
+				<div ng-view></div>
+			</div>
+		</div>
+		<script>
+			var h = angular.module("myApp",["ngRoute"]);
+			h.config(function($routeProvider){
+				$routeProvider
+				.when("/abc",{
+					templateUrl:"1.html"
+				})
+				.when("/xyz",{
+					templateUrl:"2.html"
+				});
+			});
+		</script>
+	</body>
+</html>
