@@ -2,6 +2,7 @@
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>		
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+		
 		<style>
 			#header ul li{
 				display:inline;
@@ -27,18 +28,20 @@
 	<body>
 		
 		<div ng-app="manumits">	
-		<div id="header">
-			<ul>
-				<li><a href="#!home">Home</a></li>
-				<li><a href="#!aboutus">About Us</a></li>
-				<li><a href="#!cc">Contact Us</a></li>
-			</ul>
-		</div>
+			<div id="header">
+				<ul>
+					<li><a href="#!home">Home</a></li>
+					<li><a href="#!aboutus">About Us</a></li>
+					<li><a href="#!cc">Contact Us</a></li>
+				</ul>
+			</div>
 			<div ng-view></div>
+			<div ng-include="'arth.template.html'"></div>
 		</div>
 		
 		<script>
 			var h=angular.module("manumits",["ngRoute"]);
+			
 			h.config(function($routeProvider){
 				$routeProvider
 				.when("/aboutus",{
@@ -52,19 +55,19 @@
 					templateUrl:"contact.html"
 				});
 			});
+			
 			h.controller("abcctrl",function($scope,$http,$location){
-			$scope.n=0;
-			$scope.agle=function(){
-				if($scope.n<16)
-				{
-					$scope.n=$scope.n+4;
-				}
-				else{
-					$scope.n=0;
-				}
-				
-			}
-			$scope.t=1507042175000;
+				<!-- $scope.n=0; -->
+				<!-- $scope.agle=function(){ -->
+					<!-- if($scope.n<$scope.c.length-1) -->
+					<!-- { -->
+						<!-- $scope.n=$scope.n+4; -->
+					<!-- } -->
+					<!-- else{ -->
+						<!-- $scope.n=0; -->
+					<!-- } -->					
+				<!-- } -->
+				$scope.t=1507042175000;
 				$http({
 					"method":"GET",
 					"url":"http://localhost:3000/courses"
@@ -88,9 +91,10 @@
 							"fee":$scope.fee
 						}
 					}).then(function(){console.log("acha hain");$location.path("/aboutus");},function(){console.log("Bura hain");});
-				}
-			});
-		</script>
-		
+				}				
+			});			
+		</script>		
+		<script src="arth.service.js"></script>
+		<script src="arth.controller.js"></script>
 	</body>
 </html>
