@@ -13,6 +13,15 @@
 				color:white;
 				font-variant:bold;
 			}
+			table{
+				width:100%;
+			}
+			table, th, td {				
+				border: 1px solid black;
+				border-collapse: collapse;
+				padding:15px;
+				text-align:center;
+			}
 		</style>
 	</head>
 	<body>
@@ -43,7 +52,19 @@
 					templateUrl:"contact.html"
 				});
 			});
-			h.controller("abcctrl",function($scope,$http){
+			h.controller("abcctrl",function($scope,$http,$location){
+			$scope.n=0;
+			$scope.agle=function(){
+				if($scope.n<16)
+				{
+					$scope.n=$scope.n+4;
+				}
+				else{
+					$scope.n=0;
+				}
+				
+			}
+			$scope.t=1507042175000;
 				$http({
 					"method":"GET",
 					"url":"http://localhost:3000/courses"
@@ -66,7 +87,7 @@
 							"duration":$scope.duration,
 							"fee":$scope.fee
 						}
-					}).then(function(){console.log("acha hain");},function(){console.log("Bura hain");});
+					}).then(function(){console.log("acha hain");$location.path("/aboutus");},function(){console.log("Bura hain");});
 				}
 			});
 		</script>
