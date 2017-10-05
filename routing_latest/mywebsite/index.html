@@ -27,20 +27,31 @@
 	</head>
 	<body>
 		
-		<div ng-app="manumits">	
+		<div ng-app="manumits">				
 			<div id="header">
 				<ul>
 					<li><a href="#!home">Home</a></li>
 					<li><a href="#!aboutus">About Us</a></li>
 					<li><a href="#!cc">Contact Us</a></li>
+					<li><a href="#!galleries">Galleries</a></li>
 				</ul>
 			</div>
 			<div ng-view></div>
-			<div ng-include="'arth.template.html'"></div>
+			<!-- <div ng-include="'arth.template.html'"></div> -->
 		</div>
 		
 		<script>
 			var h=angular.module("manumits",["ngRoute"]);
+			
+			h.directive("gallery",function(){
+				return {
+					templateUrl:"galleryTemplate.html",
+					scope:{
+						dt:"=d",
+						ti:"=t"
+					}
+				}
+			});
 			
 			h.config(function($routeProvider){
 				$routeProvider
@@ -53,6 +64,10 @@
 				})
 				.when("/cc",{
 					templateUrl:"contact.html"
+				})
+				.when("/galleries",{
+					templateUrl:"galleries.html",
+					controller:"galleryCtrl"
 				});
 			});
 			
@@ -96,5 +111,7 @@
 		</script>		
 		<script src="arth.service.js"></script>
 		<script src="arth.controller.js"></script>
+		<script src="gallary.controller.js"></script>
+		<script src="gallaryTemplate.html"></script>
 	</body>
 </html>
